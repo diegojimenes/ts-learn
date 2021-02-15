@@ -10,7 +10,7 @@ export class ConsultarCepController {
         const { cep } = request.body
 
         try {
-            let dados = await this.ConsultarCepUseCase.execute(cep)
+            let dados = await this.ConsultarCepUseCase.execute({ cep })
             return response.status(201).json(dados)
         } catch (error) {
             return response.status(400).json({ message: error.message || 'erro' })
